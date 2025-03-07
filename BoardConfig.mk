@@ -54,6 +54,13 @@ AB_OTA_PARTITIONS += \
     vendor_boot
 
 # Kernel
+BOARD_BOOTIMG_HEADER_VERSION := 3
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
+BOARD_KERNEL_IMAGE_NAME := Image
+TARGET_KERNEL_CONFIG := Spacewar_defconfig
+TARGET_KERNEL_SOURCE := kernel/nothing/Spacewar
+
+# Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
